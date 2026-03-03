@@ -1,16 +1,21 @@
-FROM ruby:2.5-slim
+FROM ruby:3.3-slim
 
-LABEL Name=dockerfilesamples Version=0.0.1
+LABEL Name=dockerfilesamples Version=0.0.2
 
-EXPOSE 80
+EXPOSE 8080
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+# Throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config set frozen true
 
 WORKDIR /app
-COPY . /app
 
+# Copy Gemfile first for better layer caching
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
+
+COPY . .
+
+RUN useradd --create-home appuser && chown -R appuser /app
+USER appuser
 
 CMD ["ruby", "dockerfilesamples.rb"]

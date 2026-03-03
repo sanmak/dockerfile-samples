@@ -1,0 +1,29 @@
+name: Build Dockerfiles
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build ${{ matrix.sample }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sample:
+          - c++
+          - go
+          - nodejs
+          - python
+          - python-django
+          - python-flask
+          - ruby
+          # java is excluded — requires a pre-built JAR in the build context
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t test-${{ matrix.sample }} ./${{ matrix.sample }}
