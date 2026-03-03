@@ -154,7 +154,7 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 
 ## Contact
 
-**Sanket Makhija** — [@sanket_dude](https://twitter.com/sanket_dude) — sanket[dot]mahija[at]gmail[dot]com
+**Sanket Makhija** — [https://x.com/sanketmakhija](https://x.com/sanketmakhija)
 
 Project Link: [github.com/sanmak/dockerfile-samples](https://github.com/sanmak/dockerfile-samples)
 
