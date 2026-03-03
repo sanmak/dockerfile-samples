@@ -1,4 +1,4 @@
-FROM ruby:3.3-slim
+FROM ruby:4.0-slim
 
 EXPOSE 8080
 
