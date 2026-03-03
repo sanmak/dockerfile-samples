@@ -5,7 +5,7 @@ COPY . .
 RUN go build -o /go/bin/app .
 
 # Runtime stage
-FROM alpine:3.19
+FROM alpine:3.23
 RUN apk --no-cache add ca-certificates \
     && adduser -D appuser
 COPY --from=builder /go/bin/app /app
