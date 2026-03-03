@@ -14,7 +14,7 @@ RUN touch src/main.rs \
     && cargo build --release
 
 # Runtime stage
-FROM alpine:3.19
+FROM alpine:3.23
 RUN adduser -D appuser
 COPY --from=builder /usr/src/app/target/release/dockerfilesamples /usr/local/bin/app
 USER appuser
