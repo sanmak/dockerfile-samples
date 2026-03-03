@@ -26,7 +26,7 @@ Dockerfile samples is designed to make developers life easier. As more applicati
 Each sample follows Docker best practices:
 - Pinned base image versions (no `latest` tags)
 - Non-root user for runtime security
-- Multi-stage builds where applicable (Go, Java, Node.js)
+- Multi-stage builds where applicable (Go, Java, Node.js, Rust, TypeScript)
 - Optimized layer caching (dependencies installed before app code)
 - Ports above 1024 (no root required)
 
@@ -42,6 +42,8 @@ Each sample follows Docker best practices:
 | [Python + Django](./python-django/) | `python:3.12-slim-bookworm` | Django 5.1 | 8080 |
 | [Python + Flask](./python-flask/) | `python:3.12-slim-bookworm` | Flask 3.1 | 8080 |
 | [Ruby](./ruby/) | `ruby:3.3-slim` | — | 8080 |
+| [Rust](./rust/) | `rust:1.77-alpine` | — | 8080 |
+| [TypeScript](./typescript/) | `node:20-alpine` | Express | 8080 |
 
 <!-- USAGE EXAMPLES -->
 ## Usage

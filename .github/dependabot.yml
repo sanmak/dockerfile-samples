@@ -65,6 +65,31 @@ updates:
       prefix: "docker"
       include: "scope"
 
+  - package-ecosystem: "docker"
+    directory: "/rust"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "docker"
+      include: "scope"
+
+  - package-ecosystem: "docker"
+    directory: "/typescript"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "docker"
+      include: "scope"
+
+  # Rust dependencies (cargo)
+  - package-ecosystem: "cargo"
+    directory: "/rust"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "cargo"
+      include: "scope"
+
   # Python dependencies (pip)
   - package-ecosystem: "pip"
     directory: "/python-django"
@@ -82,9 +107,17 @@ updates:
       prefix: "pip"
       include: "scope"
 
-  # Node.js dependencies (npm)
+  # Node.js / TypeScript dependencies (npm)
   - package-ecosystem: "npm"
     directory: "/nodejs"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "npm"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/typescript"
     schedule:
       interval: "weekly"
     commit-message:

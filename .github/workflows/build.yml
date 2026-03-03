@@ -21,6 +21,8 @@ jobs:
           - python-django
           - python-flask
           - ruby
+          - rust
+          - typescript
           # java is excluded — requires a pre-built JAR in the build context
     steps:
       - uses: actions/checkout@v4

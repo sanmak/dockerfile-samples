@@ -59,7 +59,7 @@
 - [x] Update `README.md` with current versions, table of samples, and usage instructions
 - [x] Add `CONTRIBUTING.md` with guidelines and Dockerfile conventions
 - [x] Update `.gitignore` with broader patterns
-- [ ] Add new language samples: Rust, TypeScript (stretch goal)
+- [x] Add new language samples: Rust, TypeScript
 
 ## Phase 7: Add CI/CD ✅
 
@@ -74,9 +74,10 @@
 
 | Ecosystem        | Directories                                              |
 |------------------|----------------------------------------------------------|
-| Docker           | All 8 Dockerfile directories (c++, go, java, nodejs, python, python-django, python-flask, ruby) |
+| Docker           | All 10 Dockerfile directories (c++, go, java, nodejs, python, python-django, python-flask, ruby, rust, typescript) |
 | pip              | python-django, python-flask                              |
-| npm              | nodejs                                                   |
+| cargo            | rust                                                     |
+| npm              | nodejs, typescript                                       |
 | GitHub Actions   | Root (for future CI workflows)                           |
 
 **How it works:**
