@@ -25,7 +25,7 @@ jobs:
           - typescript
           # java is excluded — requires a pre-built JAR in the build context
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build Docker image
         run: |
