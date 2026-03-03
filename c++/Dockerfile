@@ -6,13 +6,11 @@ FROM gcc:14
 WORKDIR /usr/src/myapp
 COPY . .
 
-# This command compiles your app using GCC, adjust for your source code
-RUN g++ -o myapp main.cpp
+# Compile the app and create a non-root user
+RUN g++ -o myapp main.cpp \
+    && useradd --create-home appuser
 
-RUN useradd --create-home appuser
 USER appuser
 
 # This command runs your application, comment out this line to compile only
 CMD ["./myapp"]
-
-LABEL Name=dockerfilesamples Version=0.0.2

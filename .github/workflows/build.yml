@@ -28,4 +28,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t test-${{ matrix.sample }} ./${{ matrix.sample }}
+        run: |
+          TAG=$(echo "${{ matrix.sample }}" | tr '+' 'p')
+          docker build -t "test-${TAG}" ./${{ matrix.sample }}

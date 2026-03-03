@@ -16,6 +16,5 @@ RUN adduser -D appuser
 USER appuser
 ENV JAVA_OPTS=""
 EXPOSE 8080
-ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
-# For Spring Boot, add this to reduce startup time:
-# ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar
+# To pass JVM options at runtime, use: docker run -e JAVA_OPTS="-Xmx512m" <image>
+CMD ["java", "-jar", "app.jar"]

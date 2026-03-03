@@ -4,13 +4,14 @@ RUN apk add --no-cache musl-dev
 WORKDIR /usr/src/app
 COPY Cargo.toml Cargo.lock* ./
 # Create a dummy main.rs to cache dependency builds
-RUN mkdir src && echo "fn main() {}" > src/main.rs
-RUN cargo build --release && rm -rf src
+RUN mkdir src && echo "fn main() {}" > src/main.rs \
+    && cargo build --release \
+    && rm -rf src
 
 COPY src ./src
 # Touch main.rs so cargo rebuilds the actual app, not the dummy
-RUN touch src/main.rs
-RUN cargo build --release
+RUN touch src/main.rs \
+    && cargo build --release
 
 # Runtime stage
 FROM alpine:3.19

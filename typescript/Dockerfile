@@ -2,7 +2,7 @@
 FROM node:20-alpine AS builder
 WORKDIR /usr/src/app
 COPY package.json package-lock.json* tsconfig.json ./
-RUN npm ci
+RUN npm install
 COPY src ./src
 RUN npm run build
 
@@ -12,7 +12,7 @@ ENV NODE_ENV=production
 WORKDIR /usr/src/app
 RUN adduser -D appuser
 COPY package.json package-lock.json* ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 COPY --from=builder /usr/src/app/dist ./dist
 USER appuser
 EXPOSE 8080
