@@ -1,1 +1,13 @@
 .vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+node_modules
+__pycache__
+*.pyc
+.env
+*.log
+.claude

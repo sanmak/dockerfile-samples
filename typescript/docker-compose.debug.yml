@@ -1,0 +1,12 @@
+services:
+  dockerfilesamples:
+    image: dockerfilesamples-typescript
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8080:8080
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "dist/index.js"]

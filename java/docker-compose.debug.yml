@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   dockerfilesamples:
     image: dockerfilesamples
@@ -9,5 +7,5 @@ services:
     environment:
       JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y
     ports:
-      - 80:80
+      - 8080:8080
       - 5005:5005

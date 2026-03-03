@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   dockerfilesamples:
     image: dockerfilesamples
@@ -9,4 +7,4 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 80:80
+      - 8080:8080

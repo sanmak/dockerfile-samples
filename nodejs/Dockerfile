@@ -1,8 +1,15 @@
-FROM node:12.18-alpine
+FROM node:20-alpine
+
 ENV NODE_ENV=production
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
-COPY . .
-EXPOSE 80
-CMD ["npm", "start"]
+
+RUN adduser -D appuser
+
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev
+
+COPY --chown=appuser:appuser . .
+
+USER appuser
+EXPOSE 8080
+CMD ["node", "index.js"]
