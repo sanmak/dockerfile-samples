@@ -67,3 +67,22 @@
 
 - [ ] Add `.github/workflows/lint.yml` — run hadolint on all Dockerfiles
 - [ ] Add `.github/workflows/build.yml` — build-test all Dockerfiles to catch errors
+
+## Phase 8: Automated Freshness with Dependabot ✅
+
+- [x] Add `.github/dependabot.yml` to auto-detect outdated base images and dependencies
+
+**What Dependabot monitors (weekly schedule):**
+
+| Ecosystem        | Directories                                              |
+|------------------|----------------------------------------------------------|
+| Docker           | All 8 Dockerfile directories (c++, go, java, nodejs, python, python-django, python-flask, ruby) |
+| pip              | python-django, python-flask                              |
+| npm              | nodejs                                                   |
+| GitHub Actions   | Root (for future CI workflows)                           |
+
+**How it works:**
+- Dependabot checks weekly for newer base image tags and dependency versions
+- Auto-creates PRs with version bump changes
+- Commit messages are prefixed by ecosystem (`docker:`, `pip:`, `npm:`, `ci:`) for easy filtering
+- No manual intervention needed — just review and merge the PRs
