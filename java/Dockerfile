@@ -1,5 +1,5 @@
 # Build stage — use JDK for compilation
-FROM eclipse-temurin:21-jdk-alpine AS builder
+FROM eclipse-temurin:25-jdk-alpine AS builder
 WORKDIR /app
 COPY . .
 # Uncomment the build command for your build tool:
@@ -9,7 +9,7 @@ COPY . .
 COPY dockerfilesamples.jar app.jar
 
 # Runtime stage — use JRE for a smaller image
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:25-jre-alpine
 WORKDIR /app
 COPY --from=builder /app/app.jar app.jar
 RUN adduser -D appuser
