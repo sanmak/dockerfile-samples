@@ -1,7 +1,7 @@
 # GCC support can be specified at major, minor, or micro version
 # (e.g. 14, 14.2 or 14.2.0).
 # See https://hub.docker.com/r/library/gcc/ for all supported GCC tags.
-FROM gcc:14
+FROM gcc:16
 
 WORKDIR /usr/src/myapp
 COPY . .
